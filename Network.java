@@ -59,16 +59,19 @@ public class Network {
     public boolean addFollowee(String name1, String name2) {
         User user1 = getUser(name1);
         User user2 = getUser(name2);
+        if (name1 == null || name2 == null) {
+            return false;
+        }
         if (user1 == null || user2 == null) {
             return false;
         }
         if (name1.toLowerCase().equals(name2.toLowerCase())) {
             return false;
         }
-        if (getUser(name1).follows(name2)) {
+        if (user1.follows(name2)) {
             return false;
         }
-        return getUser(name1).addFollowee(name2);
+        return user1.addFollowee(name2);
     }
     
     /** For the user with the given name, recommends another user to follow. The recommended user is
