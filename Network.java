@@ -129,7 +129,10 @@ public class Network {
         ans += "\n";
         for (int i = 0; i < userCount; i++) {
             User user = users[i];
-            ans = ans + user.toString() + "\n";     
+            ans += user.toString();
+            if (i < userCount -1) {
+                ans += "\n";
+            }     
         }
        return ans;
     }
